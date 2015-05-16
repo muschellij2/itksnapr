@@ -57,7 +57,7 @@ itksnap <- function(
   if (verbose){
     cat(paste0(cmd, "\n"))
   }
-  res = system(cmd)
+  res = system(cmd, ignore.stderr = TRUE, ignore.stdout = TRUE)
   return(res)
 }
 
