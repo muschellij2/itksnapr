@@ -3,3 +3,4 @@
 export(itksnap)
 export(itksnap_cmd)
 importFrom(fslr,checkimg)
+importFrom(oro.nifti,is.nifti)

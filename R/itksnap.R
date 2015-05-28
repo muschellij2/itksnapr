@@ -10,6 +10,7 @@
 #' @param ... arguments to pass to \code{\link{itksnap_cmd}}
 #' @export
 #' @importFrom fslr checkimg
+#' @importFrom oro.nifti is.nifti
 #' @return Return of \code{\link{system}} command
 itksnap <- function(
   files, # filenames or nifti objects to be displayed.  If multiple files are given, assumed the first to load and the rest are overlays
@@ -49,6 +50,7 @@ itksnap <- function(
   
   allfiles = c(files, segmentation, labels, zoom)
   file.names = names(allfiles)
+  allfiles = normalizePath(allfiles)
   allfiles = shQuote(allfiles)
   cmd = paste(file.names, 
               allfiles, 

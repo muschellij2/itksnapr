@@ -7,5 +7,6 @@ Author: John Muschelli
 Maintainer: John Muschelli <muschellij2@gmail.com>
 Description: This package wraps the ITK-SNAP software for viewing of NIfTI objects.
 Imports:
+  oro.nifti,
   fslr
-License: GPL-2
+License: GPL-3
