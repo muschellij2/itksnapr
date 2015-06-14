@@ -4,12 +4,13 @@
 \alias{itksnap}
 \title{Run ITK-SNAP}
 \usage{
-itksnap(files, segmentation = NULL, labels = NULL, zoom = NULL,
-  verbose = TRUE, ...)
+itksnap(grayscale, overlay = NULL, segmentation = NULL, labels = NULL,
+  zoom = NULL, verbose = TRUE, ...)
 }
 \arguments{
-\item{files}{filenames or nifti objects to be displayed.
-If multiple files are given assumed the first to load and the rest are overlays}
+\item{grayscale}{filenames or nifti objects to be displayed.}
+
+\item{overlay}{filenames or nifti objects to be set as overlays}
 
 \item{segmentation}{segmentation image using \code{-s} option}
 

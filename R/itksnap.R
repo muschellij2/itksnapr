@@ -1,8 +1,8 @@
 #' @title Run ITK-SNAP
 #'
 #' @description Executes ITK-SNAP
-#' @param files filenames or nifti objects to be displayed. 
-#' If multiple files are given assumed the first to load and the rest are overlays
+#' @param grayscale filenames or nifti objects to be displayed. 
+#' @param overlay filenames or nifti objects to be set as overlays 
 #' @param segmentation segmentation image using \code{-s} option
 #' @param labels label descriptions using \code{-s} option
 #' @param zoom initial zoom in screen pixels/mm
@@ -13,7 +13,8 @@
 #' @importFrom oro.nifti is.nifti
 #' @return Return of \code{\link{system}} command
 itksnap <- function(
-  files, # filenames or nifti objects to be displayed.  If multiple files are given, assumed the first to load and the rest are overlays
+  grayscale, # filenames or nifti objects to be displayed.  
+  overlay = NULL,
   segmentation = NULL, # segmentation image using \code{-s} option
   labels = NULL, # label descriptions using \code{-s} option
   zoom = NULL, # initial zoom in screen pixels/mm
@@ -31,24 +32,26 @@ itksnap <- function(
   ################
   # Force to names
   ################
-  files = maker(files)
-  names(files) = "-o"
-  names(files)[1] = "-g"
+  grayscale = maker(grayscale)
+  names(grayscale) = rep("-g", length(grayscale))
   
-  if (length(segmentation) > 0){
-    segmentation = maker(segmentation)
-    names(segmentation) = "-s"
+  maker2 = function(vec, lab){
+    if (length(vec) > 0){
+      vec = maker(vec)
+      names(vec) = rep(lab, length(vec))
+    }    
+    return(vec)
   }
   
-  if (length(labels) > 0){
-    labels = maker(labels)
-    names(labels) = "-l"
-  }
+  overlay = maker2(overlay, "-o")
+  segmentation = maker2(segmentation, "-s")
+  labels = maker2(labels, "-l")
+
   if (length(zoom) > 0){
     names(zoom) = "-z"
   }
   
-  allfiles = c(files, segmentation, labels, zoom)
+  allfiles = c(grayscale, overlay, segmentation, labels, zoom)
   file.names = names(allfiles)
   allfiles = normalizePath(allfiles)
   allfiles = shQuote(allfiles)
