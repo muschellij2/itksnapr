@@ -1,12 +1,14 @@
 Package: itksnapr
 Type: Package
-Title: Package of ITK-SNAP 
-Version: 1.0
-Date: 2015-05-16
+Title: Package of ITK-SNAP
+Version: 1.0.1
+Date: 2015-12-18
 Author: John Muschelli
 Maintainer: John Muschelli <muschellij2@gmail.com>
-Description: This package wraps the ITK-SNAP software for viewing of NIfTI objects.
+Description: This package wraps the ITK-SNAP software for viewing of NIfTI
+    objects.
 Imports:
-  oro.nifti,
-  fslr
+    oro.nifti,
+    fslr
 License: GPL-3
+RoxygenNote: 5.0.0
