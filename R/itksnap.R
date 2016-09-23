@@ -9,7 +9,7 @@
 #' @param verbose Print out the command executed
 #' @param ... arguments to pass to \code{\link{itksnap_cmd}}
 #' @export
-#' @importFrom fslr checkimg
+#' @importFrom neurobase checkimg
 #' @importFrom oro.nifti is.nifti
 #' @return Return of \code{\link{system}} command
 itksnap <- function(
