@@ -28,4 +28,10 @@ Return of \code{\link{system}} command
 \description{
 Executes ITK-SNAP
 }
+\examples{
+dims = rep(10, 3)
+arr = array(rnorm(prod(dims)), dim = dims)
+nim = oro.nifti::nifti(arr)
+itksnap(nim)
+}
 

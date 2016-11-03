@@ -7,7 +7,6 @@
 itksnap_cmd <- function(
   arch =  R.Version()$arch # architecture used (i686 or x86_64)
   ){
-  install_itksnap(arch = arch)
   sysname = tolower(Sys.info()["sysname"])
   folder = file.path(paste0(sysname, "-", arch), "bin")
   

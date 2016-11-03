@@ -12,6 +12,11 @@
 #' @importFrom neurobase checkimg
 #' @importFrom oro.nifti is.nifti
 #' @return Return of \code{\link{system}} command
+#' @examples 
+#' dims = rep(10, 3)
+#' arr = array(rnorm(prod(dims)), dim = dims)
+#' nim = oro.nifti::nifti(arr)
+#' itksnap(nim)
 itksnap <- function(
   grayscale, # filenames or nifti objects to be displayed.  
   overlay = NULL,
@@ -21,9 +26,9 @@ itksnap <- function(
   verbose = TRUE, # Print out the command executed
   ... # arguments to pass to \code{\link{itksnap_cmd}}
 ){
-  
+  install_itksnap()
   maker = function(x){
-    if (is.nifti(x)){
+    if (is.nifti(x)) {
       x = checkimg(x)
     }
     x = sapply(x, checkimg)
