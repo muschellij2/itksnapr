@@ -6,7 +6,7 @@
 #' Passed to \code{\link{system.file}}   
 #' @export
 #' @return Logical if the binary was downloaded
-#' @importFrom utils download.file
+#' @importFrom utils download.file unzip
 install_itksnap <- function(
   arch =  R.Version()$arch, # architecture used (i686 or x86_64)
   lib.loc = NULL
