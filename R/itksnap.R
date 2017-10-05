@@ -16,7 +16,9 @@
 #' dims = rep(10, 3)
 #' arr = array(rnorm(prod(dims)), dim = dims)
 #' nim = oro.nifti::nifti(arr)
+#' \dontrun{
 #' itksnap(nim)
+#' }
 itksnap <- function(
   grayscale, # filenames or nifti objects to be displayed.  
   overlay = NULL,

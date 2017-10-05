@@ -32,6 +32,8 @@ Executes ITK-SNAP
 dims = rep(10, 3)
 arr = array(rnorm(prod(dims)), dim = dims)
 nim = oro.nifti::nifti(arr)
+\dontrun{
 itksnap(nim)
+}
 }
 
