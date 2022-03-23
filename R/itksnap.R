@@ -28,7 +28,6 @@ itksnap <- function(
   verbose = TRUE, # Print out the command executed
   ... # arguments to pass to \code{\link{itksnap_cmd}}
 ){
-  install_itksnap()
   maker = function(x){
     if (is.nifti(x)) {
       x = checkimg(x)
