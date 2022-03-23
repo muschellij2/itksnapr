@@ -28,7 +28,6 @@ itksnap <- function(
   verbose = TRUE, # Print out the command executed
   ... # arguments to pass to \code{\link{itksnap_cmd}}
 ){
-  install_itksnap()
   maker = function(x){
     if (is.nifti(x)) {
       x = checkimg(x)
@@ -66,10 +65,16 @@ itksnap <- function(
               allfiles, 
               collapse = " ")
   cmd = sprintf('%s %s', shQuote(itksnap_cmd(...)), cmd)
+  sysname = tolower(Sys.info()["sysname"])
+  if (sysname %in% "windows") {
+    cmd = capture.output(cat(paste0(cmd)))
+    res = shell(cmd)
+  }else{
   if (verbose){
     cat(paste0(cmd, "\n"))
   }
   res = system(cmd, ignore.stderr = TRUE, ignore.stdout = TRUE)
+  }
   return(res)
 }
 
