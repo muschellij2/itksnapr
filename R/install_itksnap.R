@@ -17,9 +17,12 @@ install_itksnap <- function(
   cmd = itksnap_cmd(arch = arch)
 
   if (cmd == "") {
-    url = paste0("https://github.com/muschellij2/", 
-                 "itksnapr/raw/gh-pages/",
-                 type, ".zip")    
+    # url = paste0("https://github.com/muschellij2/", 
+    #              "itksnapr/raw/gh-pages/",
+    #              type, ".zip")  
+    url = paste0("https://raw.githubusercontent.com/muschellij2/",
+                 "itksnapr/gh-pages/",
+                 type, ".zip")
     snap_dir = system.file(package = "itksnapr",
                            lib.loc = lib.loc)
     destfile = file.path(

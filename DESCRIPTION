@@ -1,8 +1,7 @@
 Package: itksnapr
 Type: Package
 Title: Package of ITK-SNAP
-Version: 2.1
-Date: 2016-11-03
+Version: 2.1.1
 Author: John Muschelli
 Maintainer: John Muschelli <muschellij2@gmail.com>
 Description: This package wraps the ITK-SNAP software for viewing of NIfTI
