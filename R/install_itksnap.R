@@ -8,14 +8,14 @@
 #' @return Logical if the binary was downloaded
 #' @importFrom utils download.file unzip
 install_itksnap <- function(
-  arch =  R.Version()$arch, # architecture used (i686 or x86_64)
-  lib.loc = NULL
+    arch =  R.Version()$arch, # architecture used (i686 or x86_64)
+    lib.loc = NULL
 ){
   sysname = tolower(Sys.info()["sysname"])
   type = paste0(sysname, "-", arch)
-
+  
   cmd = itksnap_cmd(arch = arch)
-
+  
   if (cmd == "") {
     # url = paste0("https://github.com/muschellij2/", 
     #              "itksnapr/raw/gh-pages/",
@@ -28,7 +28,7 @@ install_itksnap <- function(
     destfile = file.path(
       snap_dir, 
       basename(url))
-    download.file(url, destfile, quiet = TRUE)
+    download.file(url, destfile, quiet = TRUE, mode  = "wb")
     files = unzip(destfile, 
                   exdir = snap_dir)
     for (ifile in files) {
