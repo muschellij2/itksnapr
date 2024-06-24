@@ -4,12 +4,18 @@
 #' @param arch architecture used (i686 or x86_64)
 #' @param lib.loc a character vector with path names of R libraries. 
 #' Passed to \code{\link{system.file}}   
+#' @param quiet passed to [utils::download.file()], set `FALSE` for 
+#' more verbosity/messages
+#' @param ... additional arguments to pass to [utils::download.file()],
+#' other than `quiet`
 #' @export
 #' @return Logical if the binary was downloaded
 #' @importFrom utils download.file unzip
 install_itksnap <- function(
     arch =  R.Version()$arch, # architecture used (i686 or x86_64)
-    lib.loc = NULL
+    lib.loc = NULL,
+    ...,
+    quiet = TRUE
 ){
   sysname = tolower(Sys.info()["sysname"])
   type = paste0(sysname, "-", arch)
@@ -28,7 +34,8 @@ install_itksnap <- function(
     destfile = file.path(
       snap_dir, 
       basename(url))
-    download.file(url, destfile, quiet = TRUE, mode  = "wb")
+    download.file(url, destfile, quiet = quiet, mode  = "wb",
+                  ...)
     files = unzip(destfile, 
                   exdir = snap_dir)
     for (ifile in files) {
