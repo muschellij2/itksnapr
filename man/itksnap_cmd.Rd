@@ -15,4 +15,3 @@ Path of ITK-SNAP
 \description{
 Gets ITK-SNAP command
 }
-

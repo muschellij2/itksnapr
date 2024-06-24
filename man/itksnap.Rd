@@ -4,8 +4,15 @@
 \alias{itksnap}
 \title{Run ITK-SNAP}
 \usage{
-itksnap(grayscale, overlay = NULL, segmentation = NULL, labels = NULL,
-  zoom = NULL, verbose = TRUE, ...)
+itksnap(
+  grayscale,
+  overlay = NULL,
+  segmentation = NULL,
+  labels = NULL,
+  zoom = NULL,
+  verbose = TRUE,
+  ...
+)
 }
 \arguments{
 \item{grayscale}{filenames or nifti objects to be displayed.}
@@ -36,4 +43,3 @@ nim = oro.nifti::nifti(arr)
 itksnap(nim)
 }
 }
-

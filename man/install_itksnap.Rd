@@ -4,13 +4,19 @@
 \alias{install_itksnap}
 \title{Install ITK-SNAP Binary}
 \usage{
-install_itksnap(arch = R.Version()$arch, lib.loc = NULL)
+install_itksnap(arch = R.Version()$arch, lib.loc = NULL, ..., quiet = TRUE)
 }
 \arguments{
 \item{arch}{architecture used (i686 or x86_64)}
 
 \item{lib.loc}{a character vector with path names of R libraries. 
 Passed to \code{\link{system.file}}}
+
+\item{...}{additional arguments to pass to [utils::download.file()],
+other than `quiet`}
+
+\item{quiet}{passed to [utils::download.file()], set `FALSE` for 
+more verbosity/messages}
 }
 \value{
 Logical if the binary was downloaded
@@ -18,4 +24,3 @@ Logical if the binary was downloaded
 \description{
 Install ITK-SNAP executable
 }
-

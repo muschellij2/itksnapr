@@ -12,3 +12,4 @@ Imports:
     utils
 License: GPL-3
 Remotes: muschellij2/neurobase
+RoxygenNote: 7.3.1
